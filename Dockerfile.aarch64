@@ -12,6 +12,7 @@ LABEL maintainer="gilbn"
 RUN \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
+    ssmtp \
     php83-ftp \
     php83-gd \
     php83-intl \
