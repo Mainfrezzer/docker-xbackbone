@@ -1,6 +1,18 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
+#smtp setup
+echo -n > /etc/ssmtp/ssmtp.conf
+echo "mailhub=$SMTP_SERVER:$SMTP_PORT" >> /etc/ssmtp/ssmtp.conf
+echo "AuthUser=$SMTP_USERNAME" >> /etc/ssmtp/ssmtp.conf
+echo "AuthPass=$SMTP_PASSWORD" >> /etc/ssmtp/ssmtp.conf
+echo "FromLineOverride=YES" >> /etc/ssmtp/ssmtp.conf
+if [[ $SMTP_PORT != 465 ]]
+then
+echo "UseSTARTTLS=YES" >> /etc/ssmtp/ssmtp.conf
+fi
+echo "UseTLS=YES" >> /etc/ssmtp/ssmtp.conf
+
 # create folders
 mkdir -p /config/www/xbackbone/{storage,logs,static}
 mkdir -p /config/www/xbackbone/resources/database
