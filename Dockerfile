@@ -3,11 +3,11 @@
 FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.20
 
 # set version label
-ARG BUILD_DATE
-ARG VERSION
-ARG XBACKBONE_RELEASE
+ARG BUILD_DATE="01.02.2025"
+ARG VERSION="3.8.1-v1-178"
+ARG XBACKBONE_RELEASE="3.8.1"
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="gilbn"
+LABEL maintainer="Mainfrezzer"
 
 RUN \
   echo "**** install runtime packages ****" && \
