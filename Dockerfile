@@ -1,10 +1,10 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.20
+FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.22
 
 # set version label
-ARG BUILD_DATE="01.02.2025"
-ARG VERSION="3.8.1-v1-178"
+ARG BUILD_DATE="21.09.2025"
+ARG VERSION="3.8.1-v1-198"
 ARG XBACKBONE_RELEASE="3.8.1"
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="Mainfrezzer"
@@ -13,15 +13,15 @@ RUN \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
     ssmtp \
-    php83-ftp \
-    php83-gd \
-    php83-intl \
-    php83-ldap \
-    php83-mysqli \
-    php83-pdo_mysql \
-    php83-pdo_sqlite \
-    php83-sqlite3 \
-    php83-tokenizer && \
+    php84-ftp \
+    php84-gd \
+    php84-intl \
+    php84-ldap \
+    php84-mysqli \
+    php84-pdo_mysql \
+    php84-pdo_sqlite \
+    php84-sqlite3 \
+    php84-tokenizer && \
   echo "**** install xbackbone ****" && \
     mkdir -p /app/www/public && \
   if [ -z ${XBACKBONE_RELEASE+x} ]; then \
